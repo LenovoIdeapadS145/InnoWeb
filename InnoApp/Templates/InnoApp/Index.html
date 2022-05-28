@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+  </head>
+  <body style="background-color: cyan; background-image: url();">
+      <h1 class="Name_Background_Image"><marquee width="100%" direction="right" height="100px"> Pavan Arun</marquee></h1>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/create">Create</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/feedback">Feedback</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title> Wikipedia </title>
+
+        {% load static %}
+        <link rel="stylesheet" type= "text/css" href="{% static 'InnoApp/style.css' %}">
+    </head>
+
+    <body style="background-color:cyan;">
+        <div class="Main">
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <center><h6 class="animate-charcter"style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; " > SEARCHOPEDIA </h6></center>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <form method = "POST" style="text-align: center; font-size: 30px;">
+            <label for = "Word"> 
+                Word
+            </label>
+            <div class="Web_App">
+                <input type="text" name="Search">
+                {% csrf_token %}
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        {{form.Word}}
+                    </div>
+
+                    <button type="submit" style="font-size: small; height: 25px; padding: 2px;"> Search </button>
+                </div>
+            </div>
+        </form>
+        <div class="Class">
+            <p>
+                {% if Output %}
+                {{Output}}
+                {% endif %}
+            </p>
+        </div>
+    </body>
+</html>
